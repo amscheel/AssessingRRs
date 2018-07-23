@@ -1,0 +1,45 @@
+---
+title: "Piloting logbook"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+From the [preregistration document]() (p. 11):
+
+>####Pilot sample
+On 8th June, 2018, all RRs and PRs available through the three Zotero lists described in B1.1 were listed in two tables (both will be preregistered along with 15 this document) and numbered (ordered by last name of the first author and year). 
+The RR list contained 126 entries, the PR list contained 81 entries. 
+On 19th June 2018, 5 articles from each list will be randomly chosen by executing the following commands in R:
+>`set.seed(x)`
+>
+>`sample(126, size = 4, replace=FALSE)`
+>
+>`sample(81, size = 4, replace=FALSE)`
+>
+>where “x” will be replaced by a number obtained by retrieving the measured temperature in Oslo, Norway, at 8:00 am on 19th June, 2018, from <https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/almanakk.html?dato=2018-06-19> (in °C with one decimal, e.g. 16.2 on 11th June 2018) and multiplying it by 10. 
+If an article chosen with this procedure does not fulfill the inclusion criteria (see B1.2), it will be replaced by an article chosen by re-running the same code (this time with “size = 1”).
+
+Note that the text contains an error which makes it inconsistent with the shown code: Not five, but **four** articles will be chosen from each list. 
+According to <https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/almanakk.html?dato=2018-06-19>, the measured temperature in Oslo at 8 am on 19th June 2018 was 14.5 °C. 
+Multiplied by 10, we get `r 14.5 * 10`. 
+
+Applied to the two preregistered lists of [RR articles]() and [PR articles](), this means that the following articles will be chosen:
+
+```{r choose articles}
+x <- 14.5*10
+set.seed(x)
+RRselection <- sample(126, size = 4, replace=FALSE)
+PRselection <- sample(81, size = 4, replace=FALSE)
+
+RRselection
+PRselection
+
+RRlist <- read.csv("List-of-RRs_20180608.csv")
+PRlist <- read.csv("List-of-PRs_20180608.csv")
+
+print(RRlist[RRselection,"Title"])
+PRlist[PRselection,"Title"]
+```
