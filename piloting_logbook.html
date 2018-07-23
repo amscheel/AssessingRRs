@@ -125,7 +125,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>From the <a href>preregistration document</a> (p. 11):</p>
+<p>From the <a href="https://osf.io/xdv68/">preregistration document</a> (p. 11):</p>
 <blockquote>
 <h4 id="pilot-sample">Pilot sample</h4>
 <p>On 8th June, 2018, all RRs and PRs available through the three Zotero lists described in B1.1 were listed in two tables (both will be preregistered along with 15 this document) and numbered (ordered by last name of the first author and year). The RR list contained 126 entries, the PR list contained 81 entries. On 19th June 2018, 5 articles from each list will be randomly chosen by executing the following commands in R: <code>set.seed(x)</code></p>
@@ -134,7 +134,7 @@ $(document).ready(function () {
 <p>where “x” will be replaced by a number obtained by retrieving the measured temperature in Oslo, Norway, at 8:00 am on 19th June, 2018, from <a href="https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/almanakk.html?dato=2018-06-19" class="uri">https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/almanakk.html?dato=2018-06-19</a> (in °C with one decimal, e.g. 16.2 on 11th June 2018) and multiplying it by 10. If an article chosen with this procedure does not fulfill the inclusion criteria (see B1.2), it will be replaced by an article chosen by re-running the same code (this time with “size = 1”).</p>
 </blockquote>
 <p>Note that the text contains an error which makes it inconsistent with the shown code: Not five, but <strong>four</strong> articles will be chosen from each list. According to <a href="https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/almanakk.html?dato=2018-06-19" class="uri">https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/almanakk.html?dato=2018-06-19</a>, the measured temperature in Oslo at 8 am on 19th June 2018 was 14.5 °C. Multiplied by 10, we get 145.</p>
-<p>Applied to the two preregistered lists of <a href>RR articles</a> and <a href>PR articles</a>, this means that the following articles will be chosen:</p>
+<p>Applied to the two preregistered lists of <a href="https://osf.io/8hwmu/">RR articles</a> and <a href="https://osf.io/suwx2/">PR articles</a>, this means that the following articles will be chosen:</p>
 <pre class="r"><code>x &lt;- 14.5*10
 set.seed(x)
 RRselection &lt;- sample(126, size = 4, replace=FALSE)

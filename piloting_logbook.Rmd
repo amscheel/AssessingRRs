@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-From the [preregistration document]() (p. 11):
+From the [preregistration document](https://osf.io/xdv68/) (p. 11):
 
 >####Pilot sample
 On 8th June, 2018, all RRs and PRs available through the three Zotero lists described in B1.1 were listed in two tables (both will be preregistered along with 15 this document) and numbered (ordered by last name of the first author and year). 
@@ -26,7 +26,7 @@ Note that the text contains an error which makes it inconsistent with the shown 
 According to <https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/almanakk.html?dato=2018-06-19>, the measured temperature in Oslo at 8 am on 19th June 2018 was 14.5 °C. 
 Multiplied by 10, we get `r 14.5 * 10`. 
 
-Applied to the two preregistered lists of [RR articles]() and [PR articles](), this means that the following articles will be chosen:
+Applied to the two preregistered lists of [RR articles](https://osf.io/8hwmu/) and [PR articles](https://osf.io/suwx2/), this means that the following articles will be chosen:
 
 ```{r choose articles}
 x <- 14.5*10
