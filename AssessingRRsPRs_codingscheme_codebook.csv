@@ -1,0 +1,172 @@
+Category,Subcategory,name,Variable,Description,Answer options,optional,showif,label,class,type,value,choice1,choice2,choice3,choice4,choice5,choice6,choice7,choice8,choice9,choice10
+general,,ARTICLE_NAME,Article title,,open,,,Enter the study name as used in tables or text in the meta-analysis. Alternatively: PDF file name.,,text,,,,,,,,,,,
+general,,ARTICLE_DOI,Article DOI,,open,,,"DOI of article (if no DOI, include http:// to the study. If not online, leave empty).",,text,,,,,,,,,,,
+general,,CODED_BY,Coder ID,,open,,,ORCID or full name,,text,,,,,,,,,,,
+general,,COAUTHORED,(Co-)authorship of coder,Control question to make sure coders don't code papers they (co-)authored,yes/no/not sure,,,"### (Co-)Authorship
+Did you author or co-author this article or were you involved in the conception or execution of the research described in it?",,mc,,yes,no,not sure,,,,,,,
+general,,GENERAL_NON-PREREG,Non-preregistered studies,Does the article contain non-preregistered studies?,yes/no/not sure,,,"Does the article contain non-preregistered studies, including pilot studies?",,mc,,yes,no,not sure,,,,,,,
+general,,GENERAL_NON-PREREG_COUNT,Number of on-preregistered studies,"If the article contains non-preregistered studies, how many?",number,*,GENERAL_NON-PREREG == 1,How many?,,"number 0,,1",,,,,,,,,,,
+general,,GENERAL_NON-PREREG_COMMENTS,Comments on non-preregistered studies,,open,*,GENERAL_NON-PREREG != 2,Any comments regarding non-preregistered studies:,,textarea,,,,,,,,,,,
+general,,STUDY_NO,Study number,"ID number of study, if more than one study is reported in the article",open,,,"Number (1, 2a, 2b, etc. 1 for single study papers. Copy naming convention from papers (e.g., Study 4a and 4b)., but translate into numerical variable: So Study 1 a and 1b are 1.1 and 1.2",,text,,,,,,,,,,,
+general,,STUDY_META_ANALYSIS,Meta-analysis vs original work,Is the study a meta-analysis or a systematic review?,yes/no/not sure,,,Is the study a meta-analysis or a systematic review?,,mc,,yes,no,not sure,,,,,,,
+hypothesis,hypothesis ID,HYP_NO,Hypothesis number,"ID number of hypothesis, if more than one confirmatory hypothesis is analysed in the study",open,,,"Number (1, 2, 3, …), restricted to confirmatory hypotheses. Copy naming convention from papers (e.g., Hypothesis 2a and 2b), but translate into numerical variable: So Hypothesis 1a and 1b are 1.1 and 1.2",,text,,,,,,,,,,,
+hypothesis,hypothesis ID,HYP_QUOTE,Hypothesis quote,,open,,,"### Hypothesis quote
+Copy-paste the text which states _this_ hypothesis.
+Try to find the quote with the most clear, unambiguous statement of the hypothesis.
+If no hypothesis is reported, code ""not reported""",,textarea,,,,,,,,,,,
+hypothesis,hypothesis ID,HYP_PAGE,Page number of hypothesis quote,,open,,,"### Page number of the hypothesis quote
+If no hypothesis is reported, code ""NA""",,"number 0,,1",,,,,,,,,,,
+hypothesis,hypothesis directedness,HYP_DIRECTION,Hypothesis directionality,Is the hypothesis directional?,"directional
+non-directional
+absence of effect
+compound (more than one effect)
+other",,,"Is the hypothesis directional (authors predict the sign of an effect, e.g. group A > group B, negative correlation)?
+directional effect = hypothesis predicts the sign of the effect
+non-directional effect = hypothesis predicts an effect without specifying the direction
+absence of an effect = hypothesis predicts that an effect is zero or closer to zero than some criterion
+compound = hypothesis relates to more than one effect (e.g. ""A > B *and* C = D"")
+",,mc,,directional effect,non-directional effect,absence of an effect,compound,not stated,not codeable,other,,,
+hypothesis,hypothesis directedness,HYP_DIRECTION_OTHER,Hypothesis directionality: other,"Specification of ""other"" type of hypothesis",open,,HYP_DIRECTION == 7,Please explain:,,text,,,,,,,,,,,
+hypothesis,hypothesis dependency,HYP_DEPEND,Hypothesis (in-)dependence,Is the hypothesis independent of other hypotheses in the article?,yes/no,,,Is the hypothesis independent from all other (confirmatory) hypotheses in this study?,,mc_button,,yes,no,,,,,,,,
+hypothesis,hypothesis dependency,HYP_DEPEND_SPEC,Hypothesis (in-)dependence,"Specification of relation to other hypotheses, if dependent on other hypotheses",open,,HYP_DEPEND == 2,"Please specify any dependencies between this and other hypotheses in the study (report the exact numbers of any dependent hypotheses).
+For example, the hypothesis could be the complement of another hypothesis (predict the opposite outcome), or it could be the precondition for another hypothesis.",,textarea,,,,,,,,,,,
+hypothesis,coding,HYP_CODING_DIFFICULTY,Hypothesis coding difficulty,How difficult was it to code this hypothesis?,"1 = very easy
+10 = very difficult",,,"### Hypothesis coding difficulty
+How difficult was it to code this hypothesis?",analogue_rating_scale,"rating_button 1,10,1",,very easy,very difficult,,,,,,,,
+hypothesis,coding,HYP_COMMENTS,Hypothesis comments,,open,*,,"### Hypothesis comments
+Any comments regarding (the coding of) this hypothesis?",text,,,,,,,,,,,,
+hypothesis,original vs replication,HYP_REPLICATION,Original vs. replication hypothesis,Is the hypothesis part of a replication attempt?,yes/no,,,Is this hypothesis part of a replication attempt?,,mc_button,,yes,no,,,,,,,,
+hypothesis,original vs replication,HYP_REPLICATION_TYPE,Replication taxonomy,If the hypothesis is not original: Classification according to the Curate Science replication taxonomy,"exact replication
+very close replication
+close replication
+far replication
+very far replication
+",,HYP_REPLICATION>1,"# Replication type
+Please consider the replication taxonomy shown above and classify the type of replication from ""exact"" to ""very far"".
+![replication_taxonomy](http://www.curatescience.org/logos/replication-taxonomy-v4_small.png)""",,mc,,exact replication,very close replication,close replication,far replication,very far replication,,,,,
+hypothesis,original vs replication,HYP_REPLICATION_QUOTE,Replication quote,Quote of the description of the replication type,open,*,HYP_REPLICATION>1,"# Replication description quote
+Please copy-paste the authors' description of the type of replication (e.g. close replication, conceptual replication)",,text,,,,,,,,,,,
+hypothesis,original vs replication,HYP_REPLICATION_QUOTE_PAGE,Page number of replication quote,,open,*,HYP_REPLICATION>1,"Page number of the replication description quote
+",,text,,,,,,,,,,,
+hypothesis,method section,HYP_METHOD_LENGTH,Method section word count,,number,,,Method section word count,,"number 0,,1",,,,,,,,,,,
+result,result ID,RESULT_NO,Result number,Only relevant if the hypothesis relates to more than one analysis/result,open,,HYP_DIRECTION == 4,"Result number:
+If the hypothesis relates to more than one result, please number the results consecutively.",,"number 0,,1",,,,,,,,,,,
+result,result ID,RESULT_QUOTE,Result quote,,open,,,"# Result quote
+Copy-paste the text containing the test result. If the result is reported in a table or figure and *not* in the text, state the table of figure instead (e.g., ""Table 4"", ""Figure 1A"").
+Priority is as follows:
+1. Try to find a quote from the text. 
+If there is none >
+2. Try to find a table containing the result. 
+If there is none >
+3. Try to find a figure containing the result. 
+If there is none >
+4. Code ""not reported""",,textarea,,,,,,,,,,,
+result,result ID,RESULT_PAGE,Page number of result quote,,open,,,"Page number of the result quote
+(or of the table or figure)
+If no result is reported, code ""NA"".",,text,,,,,,,,,,,
+result,analysis type,RESULT_TYPE,Analysis type,"Whether the used analysis is frequentist or Bayesian, and whether a testing or estimation approach is used","frequentist test
+Bayesian test
+frequentist estimation
+Bayesian estimation
+other",,,"What kind of analysis was used?
+(Select all that apply)",square square80,mc_multiple_button,,frequentist test,Bayesian test,frequentist estimation,Bayesian estimation,other,,,,,
+result,analysis type,RESULT_TYPE_OTHER,Other analysis,"Specify the type of analysis, if it is not frequentist or Bayesian testing or estimation or both",open,*,RESULT_TYPE == 5,Please explain:,,text,,,,,,,,,,,
+result,decision criteria,RESULT_CRIT_ALPHA_REPORT,Alpha level reporting,Whether or not the used alpha level is made explicit,yes/no,,RESULT_TYPE == 1,Is the used alpha level made explicit?,,mc_button,,yes,no,,,,,,,,
+result,decision criteria,RESULT_CRIT_ALPHA,Alpha level,The used alpha level,number,,RESULT_CRIT_ALPHA_REPORT == 1,What is the alpha level?,,"number 0,1,any",,,,,,,,,,,
+result,decision criteria,RESULT_CRIT_BAYES,Bayesian decision criterion,Whether or not a Bayesian decision criterion is reported,yes/no,,RESULT_TYPE == 2,Is a Bayesian decision criterion specified?,,mc_button,,yes,no,,,,,,,,
+result,decision criteria,RESULT_CRIT_BAYES_TYPE,Type of Bayesian decision criterion,,"Bayes factor cutoff
+other",,RESULT_CRIT_BAYES == 1,What kind of decision criterion?,,mc,,Bayes-factor cutoff,other,,,,,,,,
+result,decision criteria,RESULT_CRIT_BF,Bayes factor cutoff,If a Bayes factor cutoff is used: value,open,,RESULT_CRIT_BAYES_TYPE == 1,Specify the Bayes-factor cutoff:,,text,,,,,,,,,,,
+result,decision criteria,RESULT_CRIT_BF_OTHER,Other Bayesian decision criterion,Specification of other Bayesian decision criteria,open,,RESULT_CRIT_BAYES_TYPE == 2,Please explain:,,text,,,,,,,,,,,
+result,test statistic,RESULT_TESTSTAT,Type of frequentist test statistic,,"t
+F
+r
+Chi-square
+z
+other
+not reported
+NA",,RESULT_TYPE == 1,"Which test statistic is used?
+",,mc,,t,F,r,Chi-square,z,other,not reported,NA,,
+result,test statistic,RESULT_TESTSTAT_OTHER,"Type of ""other"" test statistic",,open,,RESULT_TESTSTAT == 6,Please specify:,,text,,,,,,,,,,,
+result,test statistic,RESULT_TESTVAL,Test value,,number,,RESULT_TESTSTAT < 7,Test value:,,"number ,,any",,,,,,,,,,,
+result,test statistic,RESULT_TESTDF1,DF 1,,number,,RESULT_TESTSTAT < 7,DF 1:,,"number ,,any",,,,,,,,,,,
+result,test statistic,RESULT_TESTDF2,DF 2 (only for F),,number,,RESULT_TESTSTAT==2,DF 2:,,"number ,,any",,,,,,,,,,,
+result,p value,RESULT_PVAL,p value reporting,How is the p value reported?,"exact
+smaller than
+greater than
+""not significant""
+not reported
+NA",,RESULT_TYPE == 1,How is the *p* value reported?,,,,exact,smaller than (p < ),larger than (p > ),"""not significant""",not reported,NA,,,,
+result,p value,RESULT_PVAL_EXACT,p =,exact p value,number,,RESULT_PVAL==1,*p* =,,"number 0,1,any",,,,,,,,,,,
+result,p value,RESULT_PVAL_SMALLER,p <,"p smaller than, if reported as p smaller than",number,,RESULT_PVAL==2,*p* <,,"number 0,1,any",,,,,,,,,,,
+result,p value,RESULT_PVAL_LARGER,p >,"p greater than, if reported as p greater than",number,,RESULT_PVAL==3,*p* >,,"number 0,1,any",,,,,,,,,,,
+result,sample,RESULT_N,N,Number of subjects used for this analysis,number,*,,How many subjects were included in this analysis?,,"number 0,,1",,,,,,,,,,,
+result,sample,RESULT_SAMPLE_SOURCE,New or pre-existing data,Was the data new or pre-existing?,"new data
+pre-existing data",,,Was the data collected for this study or did it already exist?,,mc_button,,new data,pre-existing data,,,,,,,,
+result,sample,RESULT_SAMPLE_PREEXIST,Data source,Source of the data if it was pre-existing,open,,RESULT_SAMPLE_SOURCE == 2,Please specify the source of the data:,,text,,,,,,,,,,,
+result,sample,RESULT_SAMPLE_DEPEND,Sample (in-)dependence,Does the sample overlap with samples of other analyses in the article?,yes/no,,,Does the sample that gave this result overlap fully or partly with the sample used for another analysis of this hypothesis or another hypothesis in this article?,,mc_button,,yes,no,,,,,,,,
+result,sample,RESULT_SAMPLE_DEPEND_SPEC,Sample overlap,Specify overlap with other samples,open,,RESULT_SAMPLE_DEPEND == 1,"Please state exactly with which results from which hypothesis the sample overlaps, and how (e.g. if the sample is identical or what the differences are)",,textarea,,,,,,,,,,,
+result,sample,RESULT_SAMPLE_EXCLUDED,Excluded participants,Were participants excluded from the analysis?,yes/no/not sure,,,Were participants excluded from this analysis?,,mc,,yes,no,not sure,,,,,,,
+result,sample,RESULT_SAMPLE_EXCLUDED_PREREG,Preregistered exclusions,Were all reasons for exclusion preregistered?,yes/no/not sure,,RESULT_SAMPLE_EXCLUDED == 1,Were all reasons for exclusion preregistered?,,mc,,yes,no,not sure,,,,,,,
+result,conditions,RESULT_COND_BETWEEN,Between-subject conditions,Number of between-subject conditions,number,*,,How many between-subjects conditions were used?,,"number 0,,1",,,,,,,,,,,
+result,conditions,RESULT_COND_WITHIN,Within-subject conditions,Number of within-subject conditions,number,*,,How many within-subjects conditions were used?,,"number 0,,1",,,,,,,,,,,
+result,effect size,RESULT_EFF_REPORT,Effect size reporting,Is an effect size reported?,yes/no,,,Is the effect size reported?,,mc_button,,yes,no,,,,,,,,
+result,effect size,RESULT_EFF_PARAM_t,Effect size parameter,Effect size parameter for t statistics,"Cohen's d
+raw mean difference
+other",,RESULT_EFF_REPORT==1 & RESULT_TESTSTAT==1,What effect size parameter is reported?,,mc,,Cohen's d,raw mean difference,other,,,,,,,
+result,effect size,RESULT_EFF_PARAM_F,Effect size parameter,Effect size parameter for F statistics,"eta squared
+partial eta squared
+omega squared
+f
+other",,RESULT_EFF_REPORT==1 & RESULT_TESTSTAT==2,What effect size parameter is reported?,,mc,,eta squared,partial eta squared,omega squared,f,other,,,,,
+result,effect size,RESULT_EFF_PARAM_r,Effect size parameter,Effect size parameter for r statistics,,,RESULT_EFF_REPORT==1 & RESULT_TESTSTAT==3,What effect size parameter is reported?,,mc,,r (Pearson),r (Spearman),beta,R squared,other,,,,,0
+result,effect size,RESULT_EFF_PARAM_Chi-z,Effect size parameter,Effect size parameter for Chi-square statistics,"odds ratio
+proportion
+percentage
+other",,RESULT_EFF_REPORT==1 & RESULT_TESTSTAT > 3 & RESULT_TESTSTAT < 6,What effect size parameter is reported?,,mc,,odds ratio,proportion,percentage,other,,,,,,0
+result,effect size,RESULT_EFF_PARAM_OTHER,Effect size parameter,"Effect size parameter if none of the above
+",open,,RESULT_EFF_REPORT==1 & (RESULT_TESTSTAT==6 | RESULT_EFF_PARAM_t == 3 | RESULT_EFF_PARAM_F == 5| RESULT_EFF_PARAM_r == 5| RESULT_EFF_PARAM_Chi-z == 4),What effect size parameter is reported?,,text,,,,,,,,,,,
+result,effect size,RESULT_EFF_VALUE,Effect size,,number,,RESULT_EFF_REPORT==1,,,,,,,,,,,,,,
+result,effect size,RESULT_EFF_CALC,Other values to calculate effect size,Values to calculate effect size if no test statistic or effect size is reported,open,*,RESULT_TESTSTAT == 7 & RESULT_EFF_REPORT==2,"Report any data that could be used to calculate the effect size (e.g. means, SDs, group sizes):",,textarea,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BAYES,Bayesian analysis,Type of Bayesian analysis (if a Bayesian analysis is used),open,,RESULT_TYPE == 2 | RESULT_TYPE == 4,Please explain the type of Bayesian analysis that is used:,,text,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BF,Bayes factor reporting,Whether or not a Bayes factor is reported,yes/no,,RESULT_TYPE == 2 | RESULT_TYPE == 4,Is a Bayes factor reported?,,mc_button,,yes,no,,,,,,,,
+result,Bayesian analyses,RESULT_BF_PRIOR_H0,H0 prior,"Type of H0 prior, if a Bayes factor is reported","point null
+other",,RESULT_BF == 1,What prior is used for H0?,,mc,,point null,other,NA,,,,,,,
+result,Bayesian analyses,RESULT_BF_PRIOR_H0_OTHER,H0 prior if other than point null,Specification of H0 prior if other than a point null,open,,RESULT_BF_PRIOR_H0 == 2,"Please specify the shape, mean, and width (if applicable) of the H0 prior:",,text,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BF_PRIOR_H1,H1 prior,"Specification of H1 prior, if a Bayes factor is reported",open,,RESULT_BF == 1,"Please specify the shape, mean, and width (if applicable) of the H1 prior:",,text,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BF_ORDER,BF10 vs BF01,Is the Bayes factor reported as BF10 or BF01?,"BF10
+BF01
+other",,RESULT_BF == 1,Is the Bayes factor reported as BF10 or BF01?,,mc_button,,BF10,BF01,other,,,,,,,
+result,Bayesian analyses,RESULT_BF_ORDER_OTHER,BF other than BF10 or BF01,"Specification of Bayes factor reporting, if not BF10 or BF01",open,,RESULT_BF_ORDER == 3,Please specify:,,text,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BF_VALUE,Bayes factor value,,number,,RESULT_BF == 1,BF = ,,"number 0,,any",,,,,,,,,,,
+result,Bayesian analyses,RESULT_BAYES_PRIORS,Bayesian priors,Any other/additional information about used priors,open,*,RESULT_TYPE == 2 | RESULT_TYPE == 4,"Please give any additional information about used priors, prior probabilities, or prior odds, that have not been coded so far:",,textarea,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BAYES_POST,Bayesian outcomes/posterior probability,Any other/additional information about reported Bayesian outcomes/posterior probabilities,open,*,RESULT_TYPE == 2 | RESULT_TYPE == 4,Please give any additional information about Bayesian outcomes that have not been coded so far:,,textarea,,,,,,,,,,,
+result,coding,RESULT_CODING_DIFFICULTY,Result coding difficulty,How difficult was it to code this result?,"1 = very easy
+10 = very difficult",,,"# Result coding difficulty
+How difficult was it to code this result?",,"rating_button 1,10,1",,very easy,very difficult,,,,,,,,
+result,coding,RESULT_COMMENTS,Result comments,,open,*,,"# Result comments
+Any comments regarding (the coding of) this result?",,textarea,,,,,,,,,,,
+conclusion,conclusion ID,CONCLUSION_QUOTE,Conclusion quote,,open,,,"# Conclusion quote
+Copy-paste the text containing the conclusion _for this hypothesis_.
+Try to find the quote with the most clear, unambiguous statement about the conclusion.
+If there are several equally clear, unambiguous statements, choose the one that is most specific for this hypothesis.
+If there is no conclusion statement, code ""not reported""",,textarea,,,,,,,,,,,
+conclusion,conclusion ID,CONCLUSION_PAGE,Page number of conclusion quote,,open,,,"# Page number of the conclusion quote
+If there is no conclusion statement, code ""NA""",,text,,,,,,,,,,,
+conclusion,conclusion type,CONCLUSION_TYPE,Type of conclusion,Is the hypothesis directional?,"confirmed
+disconfirmed
+inconclusive
+not reported
+not codeable
+other",,,"# Conclusion
+What was the authors' conclusion _for this hypothesis_?",,mc,,confirmed,disconfirmed,inconclusive,not reported,not codeable,other,,,,
+conclusion,coding,CONCLUSION_CODING_DIFFICULTY,Conclusion coding difficulty,How difficult was it to code this conclusion?,"1 = very easy
+10 = very difficult",,,"# Result coding difficulty
+How difficult was it to code this result?",,"rating_button 1,10,1",,very easy,very difficult,,,,,,,,
+conclusion,coding,CONCLUSION_COMMENTS,Conclusion comments,,open,*,,"### Result comments
+Any comments regarding (the coding of) this result?",,textarea,,,,,,,,,,,
+exploratory,,EXPLOR_RESEARCHQ,Number of exploratory research questions,,number,*,,How many exploratory research questions are investigated?,,"number 0,,1",,,,,,,,,,,
+exploratory,,EXPLOR_ANALYSES,Number of exploratory analyses,,number,*,,How many exploratory analyses are calculated?,,"number 0,,1",,,,,,,,,,,
+general,hypothesis,GENERAL_HYP_COUNT,Total number of confirmatory hypotheses,,number,,,"How many preregistered, confirmatory hypotheses are reported in total?",,"number 0,,1",,,,,,,,,,,
+general,coding,GENERAL_HYP_CODING,Completeness check,Did you code all preregistered confirmatory hypotheses in this article?,yes/no/not sure,,,Did you code all preregistered confirmatory hypotheses in this article?,,mc,,yes,no,not sure,,,,,,,
+general,,GENERAL_COMMENTS,General comments,,open,*,,General comments:,,textarea,,,,,,,,,,,
