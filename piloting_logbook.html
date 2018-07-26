@@ -34,7 +34,7 @@ if (window.hljs) {
   hljs.configure({languages: []});
   hljs.initHighlightingOnLoad();
   if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+    window.setTimeout(function() { hljs.initHighlightingOnLoad(); }, 0);
   }
 }
 </script>
@@ -90,9 +90,6 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
-.html-widget {
-  margin-bottom: 20px;
-}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -147,12 +144,12 @@ RRselection</code></pre>
 <pre class="r"><code>RRlist &lt;- read.csv(&quot;List-of-RRs_20180608.csv&quot;)
 PRlist &lt;- read.csv(&quot;List-of-PRs_20180608.csv&quot;)
 
-print(RRlist[RRselection,&quot;Title&quot;])</code></pre>
+RRlist[RRselection,&quot;Title&quot;]</code></pre>
 <pre><code>## [1] Sense and sensibility: The role of cognitive and emotional intelligence in negotiation                         
 ## [2] Registered Replication Report: Testing Disruptive Effects of Irrelevant Speech on Visual-Spatial Working Memory
 ## [3] Mood effects on attentional control: a preregistered replication study and critical analysis                   
 ## [4] Nudge me if you can - how defaults and attitude strength interact to change behavior                           
-## 126 Levels: A Multilab Preregistered Replication of the Ego-Depletion Effect ...</code></pre>
+## 126 Levels: A closer look at the size of the gaze-liking effect: a preregistered replication ...</code></pre>
 <pre class="r"><code>PRlist[PRselection,&quot;Title&quot;]</code></pre>
 <pre><code>## [1] Forgetting Patterns Differentiate Between Two Forms of Memory Representation                                                                  
 ## [2] A Large-Scale Test of the Goldilocks Hypothesis: Quantifying the Relations Between Digital-Screen Use and the Mental Well-Being of Adolescents

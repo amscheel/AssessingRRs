@@ -40,6 +40,6 @@ PRselection
 RRlist <- read.csv("List-of-RRs_20180608.csv")
 PRlist <- read.csv("List-of-PRs_20180608.csv")
 
-print(RRlist[RRselection,"Title"])
+RRlist[RRselection,"Title"]
 PRlist[PRselection,"Title"]
 ```
