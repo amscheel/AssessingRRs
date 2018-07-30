@@ -69,11 +69,11 @@ Bayesian test
 frequentist estimation
 Bayesian estimation
 other",,,"What kind of analysis was used?
-(Select all that apply)",square square80,mc_multiple_button,,frequentist test,Bayesian test,frequentist estimation,Bayesian estimation,other,,,,,
-result,analysis type,RESULT_TYPE_OTHER,Other analysis,"Specify the type of analysis, if it is not frequentist or Bayesian testing or estimation or both",open,*,RESULT_TYPE == 5,Please explain:,,text,,,,,,,,,,,
-result,decision criteria,RESULT_CRIT_ALPHA_REPORT,Alpha level reporting,Whether or not the used alpha level is made explicit,yes/no,,RESULT_TYPE == 1,Is the used alpha level made explicit?,,mc_button,,yes,no,,,,,,,,
+(Select all that apply)",square square100,mc_multiple_button,,frequentist test,Bayesian test,frequentist estimation,Bayesian estimation,other,,,,,
+result,analysis type,RESULT_TYPE_OTHER,Other analysis,"Specify the type of analysis, if it is not frequentist or Bayesian testing or estimation or both",open,*,"RESULT_TYPE %contains% ""5"" |  RESULT_TYPE == 5",Please explain:,,text,,,,,,,,,,,
+result,decision criteria,RESULT_CRIT_ALPHA_REPORT,Alpha level reporting,Whether or not the used alpha level is made explicit,yes/no,,"RESULT_TYPE %contains% ""1"" | RESULT_TYPE == 1",Is the used alpha level made explicit?,,mc_button,,yes,no,,,,,,,,
 result,decision criteria,RESULT_CRIT_ALPHA,Alpha level,The used alpha level,number,,RESULT_CRIT_ALPHA_REPORT == 1,What is the alpha level?,,"number 0,1,any",,,,,,,,,,,
-result,decision criteria,RESULT_CRIT_BAYES,Bayesian decision criterion,Whether or not a Bayesian decision criterion is reported,yes/no,,RESULT_TYPE == 2,Is a Bayesian decision criterion specified?,,mc_button,,yes,no,,,,,,,,
+result,decision criteria,RESULT_CRIT_BAYES,Bayesian decision criterion,Whether or not a Bayesian decision criterion is reported,yes/no,,"RESULT_TYPE %contains% ""2"" | RESULT_TYPE == 2",Is a Bayesian decision criterion specified?,,mc_button,,yes,no,,,,,,,,
 result,decision criteria,RESULT_CRIT_BAYES_TYPE,Type of Bayesian decision criterion,,"Bayes factor cutoff
 other",,RESULT_CRIT_BAYES == 1,What kind of decision criterion?,mc_vertical,mc,,Bayes-factor cutoff,other,,,,,,,,
 result,decision criteria,RESULT_CRIT_BF,Bayes factor cutoff,If a Bayes factor cutoff is used: value,open,,RESULT_CRIT_BAYES_TYPE == 1,Specify the Bayes-factor cutoff:,,text,,,,,,,,,,,
@@ -85,7 +85,7 @@ Chi-square
 z
 other
 not reported
-NA",,RESULT_TYPE == 1,"Which test statistic is used?
+NA",,"RESULT_TYPE %contains% ""1"" | RESULT_TYPE == 1","Which test statistic is used?
 ",mc_vertical,mc,,t,F,r,Chi-square,z,other,not reported,NA,,
 result,test statistic,RESULT_TESTSTAT_OTHER,"Type of ""other"" test statistic",,open,,RESULT_TESTSTAT == 6,Please specify:,,text,,,,,,,,,,,
 result,test statistic,RESULT_TESTVAL,Test value,,number,,RESULT_TESTSTAT < 7,Test value:,,"number ,,any",,,,,,,,,,,
@@ -96,7 +96,7 @@ smaller than
 greater than
 ""not significant""
 not reported
-NA",,RESULT_TYPE == 1,How is the *p* value reported?,mc_vertical,mc,,exact,smaller than (p < ),larger than (p > ),"""not significant""",not reported,NA,,,,
+NA",,"RESULT_TYPE %contains% ""1"" | RESULT_TYPE == 1",How is the *p* value reported?,mc_vertical,mc,,exact,smaller than (p < ),larger than (p > ),"""not significant""",not reported,NA,,,,
 result,p value,RESULT_PVAL_EXACT,p =,exact p value,number,,RESULT_PVAL==1,*p* =,,"number 0,1,any",,,,,,,,,,,
 result,p value,RESULT_PVAL_SMALLER,p <,"p smaller than, if reported as p smaller than",number,,RESULT_PVAL==2,*p* <,,"number 0,1,any",,,,,,,,,,,
 result,p value,RESULT_PVAL_LARGER,p >,"p greater than, if reported as p greater than",number,,RESULT_PVAL==3,*p* >,,"number 0,1,any",,,,,,,,,,,
@@ -128,8 +128,8 @@ result,effect size,RESULT_EFF_PARAM_OTHER,Effect size parameter,"Effect size par
 ",open,,RESULT_EFF_REPORT==1 & (RESULT_TESTSTAT==6 | RESULT_EFF_PARAM_t == 3 | RESULT_EFF_PARAM_F == 5| RESULT_EFF_PARAM_r == 5| RESULT_EFF_PARAM_Chi_z == 4),What effect size parameter is reported?,,text,,,,,,,,,,,
 result,effect size,RESULT_EFF_VALUE,Effect size,,number,,RESULT_EFF_REPORT==1,,,"number ,,any",,,,,,,,,,,
 result,effect size,RESULT_EFF_CALC,Other values to calculate effect size,Values to calculate effect size if no test statistic or effect size is reported,open,*,RESULT_TESTSTAT == 7 & RESULT_EFF_REPORT==2,"Report any data that could be used to calculate the effect size (e.g. means, SDs, group sizes):",,textarea,,,,,,,,,,,
-result,Bayesian analyses,RESULT_BAYES,Bayesian analysis,Type of Bayesian analysis (if a Bayesian analysis is used),open,,RESULT_TYPE == 2 | RESULT_TYPE == 4,Please explain the type of Bayesian analysis that is used:,,text,,,,,,,,,,,
-result,Bayesian analyses,RESULT_BF,Bayes factor reporting,Whether or not a Bayes factor is reported,yes/no,,RESULT_TYPE == 2 | RESULT_TYPE == 4,Is a Bayes factor reported?,,mc_button,,yes,no,,,,,,,,
+result,Bayesian analyses,RESULT_BAYES,Bayesian analysis,Type of Bayesian analysis (if a Bayesian analysis is used),open,,"RESULT_TYPE %contains% ""2"" | RESULT_TYPE %contains% ""4"" | RESULT_TYPE == 2 | RESULT_TYPE == 4",Please explain the type of Bayesian analysis that is used:,,text,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BF,Bayes factor reporting,Whether or not a Bayes factor is reported,yes/no,,"RESULT_TYPE %contains% ""2"" | RESULT_TYPE %contains% ""4"" | RESULT_TYPE == 2 | RESULT_TYPE == 4",Is a Bayes factor reported?,,mc_button,,yes,no,,,,,,,,
 result,Bayesian analyses,RESULT_BF_PRIOR_H0,H0 prior,"Type of H0 prior, if a Bayes factor is reported","point null
 other",,RESULT_BF == 1,What prior is used for H0?,mc_vertical,mc,,point null,other,NA,,,,,,,
 result,Bayesian analyses,RESULT_BF_PRIOR_H0_OTHER,H0 prior if other than point null,Specification of H0 prior if other than a point null,open,,RESULT_BF_PRIOR_H0 == 2,"Please specify the shape, mean, and width (if applicable) of the H0 prior:",,text,,,,,,,,,,,
@@ -139,8 +139,8 @@ BF01
 other",,RESULT_BF == 1,Is the Bayes factor reported as BF10 or BF01?,,mc_button,,BF10,BF01,other,,,,,,,
 result,Bayesian analyses,RESULT_BF_ORDER_OTHER,BF other than BF10 or BF01,"Specification of Bayes factor reporting, if not BF10 or BF01",open,,RESULT_BF_ORDER == 3,Please specify:,,text,,,,,,,,,,,
 result,Bayesian analyses,RESULT_BF_VALUE,Bayes factor value,,number,,RESULT_BF == 1,BF = ,,"number 0,,any",,,,,,,,,,,
-result,Bayesian analyses,RESULT_BAYES_PRIORS,Bayesian priors,Any other/additional information about used priors,open,*,RESULT_TYPE == 2 | RESULT_TYPE == 4,"Please give any additional information about used priors, prior probabilities, or prior odds, that have not been coded so far:",,textarea,,,,,,,,,,,
-result,Bayesian analyses,RESULT_BAYES_POST,Bayesian outcomes/posterior probability,Any other/additional information about reported Bayesian outcomes/posterior probabilities,open,*,RESULT_TYPE == 2 | RESULT_TYPE == 4,Please give any additional information about Bayesian outcomes that have not been coded so far:,,textarea,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BAYES_PRIORS,Bayesian priors,Any other/additional information about used priors,open,*,"RESULT_TYPE %contains% ""2"" | RESULT_TYPE %contains% ""4"" | RESULT_TYPE == 2 | RESULT_TYPE == 4","Please give any additional information about used priors, prior probabilities, or prior odds, that have not been coded so far:",,textarea,,,,,,,,,,,
+result,Bayesian analyses,RESULT_BAYES_POST,Bayesian outcomes/posterior probability,Any other/additional information about reported Bayesian outcomes/posterior probabilities,open,*,"RESULT_TYPE %contains% ""2"" | RESULT_TYPE %contains% ""4"" | RESULT_TYPE == 2 | RESULT_TYPE == 4",Please give any additional information about Bayesian outcomes that have not been coded so far:,,textarea,,,,,,,,,,,
 result,coding,RESULT_CODING_DIFFICULTY,Result coding difficulty,How difficult was it to code this result?,"1 = very easy
 10 = very difficult",,,"### Result coding difficulty
 How difficult was it to code this result?",,"rating_button 1,10,1",,very easy,very difficult,,,,,,,,
