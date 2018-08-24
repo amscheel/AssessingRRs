@@ -128,18 +128,15 @@ group <- c(rep("RR", 4), rep("PR", 4))
 doi.df <- as.data.frame(cbind(doi, group))
 
 pilot <- merge(pilot, doi.df, by="doi", sort = FALSE)
-
-pilot$coder[which(pilot$coder == unique(pilot$coder)[1])] <- "Anne"
-pilot$coder[which(pilot$coder == unique(pilot$coder)[2])] <- "Emma"
-
-
 pilot <- pilot[order(pilot$group, pilot$doi, pilot$coder, pilot$created),]
 
+pilot <- pilot[which(pilot$session != sessions[3]),]
 
 write.csv(pilot, file = "AssessingRRsPilot_data_cleaned.csv")
 
 
 pilot[which(pilot$item_name == "ARTICLE_NAME"), c("doi", "coder", "answer")]
+
 
 
 
