@@ -18,7 +18,7 @@ pilot[pilot$item_name=="ARTICLE_DOI", "answer"] <- gsub("^.*?1","1", pilot[pilot
 
 ## remove all rows of variables that haven't been shown
 pilot <- pilot[pilot$shown!="",]
-
+pilot[which(pilot$item_name == "ARTICLE_DOI" & pilot$answer == "10.1007/s11031-017-9645-3 "), "answer"] <- "10.1007/s11031-017-9645-3"
 
 
 
@@ -134,9 +134,13 @@ pilot$coder[which(pilot$coder == unique(pilot$coder)[2])] <- "Emma"
 
 
 pilot <- pilot[order(pilot$group, pilot$doi, pilot$coder, pilot$created),]
-summary(pilot)
+
 
 write.csv(pilot, file = "AssessingRRsPilot_data_cleaned.csv")
+
+
+pilot[which(pilot$item_name == "ARTICLE_NAME"), c("doi", "coder", "answer")]
+
 
 
 ## Turn dataset into wide format (not sure if this is still necessary after creating repeat.var)
@@ -151,7 +155,7 @@ pilot$item_name[which(pilot$item_name == "RESULT_NOTE3")+1]
 
 pilot$item_name[which(pilot$item_name == "RESULT_NO") : which(pilot$item_name == "RESULT_NOTE3")]
 
-
+doi.df
 
 pilot$result.no[
   ## This indexes the row number of the first row to be named after the current study
